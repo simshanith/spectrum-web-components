@@ -20,6 +20,7 @@ import {
 } from 'lit-element';
 
 import { Focusable } from '@spectrum-web-components/shared/lib/focusable.js';
+import { FieldLabelMixin } from '@spectrum-web-components/field-label';
 import '@spectrum-web-components/icon';
 import '@spectrum-web-components/icons';
 
@@ -33,7 +34,7 @@ import { nothing } from 'lit-html';
  * @slot icon - The icon that appears on the left of the label
  */
 
-export class Textfield extends Focusable {
+export class Textfield extends FieldLabelMixin(Focusable) {
     public static get styles(): CSSResultArray {
         return [
             ...super.styles,
@@ -48,9 +49,6 @@ export class Textfield extends Focusable {
 
     @property({ type: Boolean, reflect: true })
     public invalid = false;
-
-    @property()
-    public label = '';
 
     @property()
     public placeholder = '';
@@ -124,14 +122,16 @@ export class Textfield extends Focusable {
     protected render(): TemplateResult {
         if (this.multiline) {
             return html`
+                ${this.renderLabel()}
                 ${this.grows
                     ? html`
                           <div id="sizer">${this.value}</div>
                       `
                     : nothing}
-                <!-- @ts-ignore -->
                 <textarea
-                    aria-label=${this.label || this.placeholder}
+                    aria-label=${ifDefined(
+                        this.label ? undefined : this.placeholder
+                    )}
                     id="input"
                     pattern=${ifDefined(this.pattern)}
                     placeholder=${this.placeholder}
@@ -140,15 +140,16 @@ export class Textfield extends Focusable {
                     @input=${this.onInput}
                     ?disabled=${this.disabled}
                     ?required=${this.required}
-                    autocomplete=${ifDefined(this.autocomplete)}
                 ></textarea>
                 ${this.renderStateIcons()}
             `;
         }
         return html`
-            <!-- @ts-ignore -->
+            ${this.renderLabel()}
             <input
-                aria-label=${this.label || this.placeholder}
+                aria-label=${ifDefined(
+                    this.label ? undefined : this.placeholder
+                )}
                 id="input"
                 pattern=${ifDefined(this.pattern)}
                 placeholder=${this.placeholder}
@@ -157,7 +158,6 @@ export class Textfield extends Focusable {
                 @input=${this.onInput}
                 ?disabled=${this.disabled}
                 ?required=${this.required}
-                autocomplete=${ifDefined(this.autocomplete)}
             />
             ${this.renderStateIcons()}
         `;
@@ -166,6 +166,16 @@ export class Textfield extends Focusable {
     protected updated(changedProperties: PropertyValues): void {
         if (changedProperties.has('value')) {
             this.checkValidity();
+        }
+        if (changedProperties.has('autocomplete')) {
+            if (this.autocomplete) {
+                this.inputElement.setAttribute(
+                    'autocomplete',
+                    this.autocomplete
+                );
+            } else {
+                this.inputElement.removeAttribute('autocomplete');
+            }
         }
     }
 

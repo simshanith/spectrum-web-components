@@ -28,6 +28,7 @@ import alertSmallStyles from '@spectrum-web-components/icon/lib/spectrum-icon-al
 import chevronDownMediumStyles from '@spectrum-web-components/icon/lib/spectrum-icon-chevron-down-medium.css.js';
 
 import { Focusable } from '@spectrum-web-components/shared/lib/focusable.js';
+import { FieldLabelMixin } from '@spectrum-web-components/field-label';
 import '@spectrum-web-components/icon';
 import '@spectrum-web-components/icons';
 import { Menu, MenuQueryRoleEventDetail } from '@spectrum-web-components/menu';
@@ -63,9 +64,6 @@ export class DropdownBase extends Focusable {
     @property({ type: Boolean, reflect: true })
     public invalid = false;
 
-    @property()
-    public label?: string;
-
     @property({ type: Boolean, reflect: true })
     public open = false;
 
@@ -79,6 +77,9 @@ export class DropdownBase extends Focusable {
 
     @property({ type: String })
     public value = '';
+
+    @property({ type: String })
+    public label = '';
 
     @property({ type: String })
     public selectedItemText = '';
@@ -299,7 +300,6 @@ export class DropdownBase extends Focusable {
             <sp-icons-medium></sp-icons-medium>
             <button
                 aria-haspopup="true"
-                aria-label=${ifDefined(this.label || undefined)}
                 id="button"
                 @blur=${this.onButtonBlur}
                 @click=${this.onButtonClick}
@@ -380,7 +380,7 @@ export class DropdownBase extends Focusable {
     }
 }
 
-export class Dropdown extends DropdownBase {
+export class Dropdown extends FieldLabelMixin(DropdownBase) {
     public static get styles(): CSSResultArray {
         return [...super.styles, fieldButtonStyles];
     }

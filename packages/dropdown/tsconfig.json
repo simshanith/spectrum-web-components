@@ -10,6 +10,7 @@
         { "path": "../button" },
         { "path": "../icon" },
         { "path": "../icons" },
+        { "path": "../field-label" },
         { "path": "../menu" },
         { "path": "../menu-item" },
         { "path": "../overlay" },

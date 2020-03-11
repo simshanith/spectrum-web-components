@@ -9,7 +9,7 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTA
 OF ANY KIND, either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 */
-import { html, action } from '@open-wc/demoing-storybook';
+import { html, action, select } from '@open-wc/demoing-storybook';
 
 import '../';
 import { Dropdown } from '../';
@@ -154,6 +154,43 @@ export const initialValue = (): TemplateResult => {
                     Save Selection
                 </sp-menu-item>
                 <sp-menu-item disabled value="item-6">
+                    Make Work Path
+                </sp-menu-item>
+            </sp-menu>
+        </sp-dropdown>
+    `;
+};
+
+export const labeledDropdown = (): TemplateResult => {
+    return html`
+        <sp-dropdown
+            label="What is your country of residence?"
+            labelled-on=${select(
+                'Labelled on',
+                ['top', 'right', 'left'],
+                'top',
+                'Element'
+            )}
+        >
+            Select a Country with a very long label, too long in fact
+            <sp-menu>
+                <sp-menu-item>
+                    Deselect
+                </sp-menu-item>
+                <sp-menu-item>
+                    Select Inverse
+                </sp-menu-item>
+                <sp-menu-item>
+                    Feather...
+                </sp-menu-item>
+                <sp-menu-item>
+                    Select and Mask...
+                </sp-menu-item>
+                <sp-menu-divider></sp-menu-divider>
+                <sp-menu-item>
+                    Save Selection
+                </sp-menu-item>
+                <sp-menu-item disabled>
                     Make Work Path
                 </sp-menu-item>
             </sp-menu>
