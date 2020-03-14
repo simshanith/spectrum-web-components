@@ -32,6 +32,7 @@ module.exports = (config) => {
                     'packages/*/stories/*',
                     'packages/icons-ui/*',
                     'packages/icons-workflow/*',
+                    'projects/**/*',
                 ],
             },
             browsers: ['FirefoxHeadlessCustom'],
