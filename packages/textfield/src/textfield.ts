@@ -170,7 +170,7 @@ export class Textfield extends Focusable {
     }
 
     public checkValidity(): boolean {
-        if (this.value && (this.pattern || this.required)) {
+        if (this.value && this.required) {
             let validity = this.inputElement.checkValidity();
             if ((this.disabled || this.multiline) && this.pattern) {
                 const regex = new RegExp(this.pattern);

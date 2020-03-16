@@ -11,7 +11,6 @@ governing permissions and limitations under the License.
 */
 import {
     html,
-    boolean,
     withKnobs,
     withWebComponentsKnobs,
 } from '@open-wc/demoing-storybook';
@@ -26,24 +25,15 @@ export default {
 };
 
 export const Default = (): TemplateResult => {
-    const quiet = boolean('Quiet', false, 'Element');
     return html`
-        <sp-textfield
-            placeholder="Enter your name"
-            ?quiet=${quiet}
-        ></sp-textfield>
-        <sp-textfield
-            placeholder="Enter your name"
-            disabled
-            ?quiet=${quiet}
-        ></sp-textfield>
+        <sp-textfield placeholder="Enter your name"></sp-textfield>
+        <sp-textfield placeholder="Enter your name" disabled></sp-textfield>
         <sp-textfield
             placeholder="Enter your name"
             pattern="[\\w\\s]+"
             required
             valid
             value="A valid input"
-            ?quiet=${quiet}
         ></sp-textfield>
         <sp-textfield
             placeholder="Enter your name"
@@ -52,14 +42,12 @@ export const Default = (): TemplateResult => {
             valid
             value="A valid input"
             disabled
-            ?quiet=${quiet}
         ></sp-textfield>
         <sp-textfield
             placeholder="Enter your name"
             pattern="[\\d]+"
             required
             value="Not a valid input"
-            ?quiet=${quiet}
         ></sp-textfield>
         <sp-textfield
             placeholder="Enter your name"
@@ -68,7 +56,6 @@ export const Default = (): TemplateResult => {
             required
             value="Not a valid input"
             disabled
-            ?quiet=${quiet}
         ></sp-textfield>
     `;
 };
