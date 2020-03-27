@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { CSSResultArray, property } from 'lit-element';
+import { CSSResultArray, property, html, TemplateResult } from 'lit-element';
 import { ButtonBase } from './button-base.js';
 import buttonStyles from './action-button.css.js';
 
@@ -26,5 +26,25 @@ export class ActionButton extends ButtonBase {
 
     public static get styles(): CSSResultArray {
         return [...super.styles, buttonStyles];
+    }
+
+    protected get buttonContent(): TemplateResult[] {
+        const content = super.buttonContent;
+        if (this.holdAffordance) {
+            content.push(html`
+                <svg
+                    id="hold-affordance"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M5.74.01a.25.25 0 00-.177.073l-5.48 5.48a.25.25 0 00.177.427h5.48a.25.25 0 00.25-.25V.26a.25.25 0 00-.25-.25z"
+                    />
+                </svg>
+            `);
+        }
+        return content;
     }
 }
