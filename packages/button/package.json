@@ -18,7 +18,7 @@
         "lit-element",
         "lit-html"
     ],
-    "version": "0.7.0",
+    "version": "0.7.1",
     "description": "",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -37,10 +37,6 @@
     },
     "author": "",
     "license": "Apache-2.0",
-    "peerDependencies": {
-        "lit-element": "^2.1.0",
-        "lit-html": "^1.0.0"
-    },
     "devDependencies": {
         "@spectrum-css/button": "^2.2.0"
     },
@@ -48,6 +44,8 @@
         "@spectrum-web-components/icon": "^0.4.8",
         "@spectrum-web-components/icons-ui": "^0.1.2",
         "@spectrum-web-components/shared": "^0.4.7",
+        "lit-element": "^2.2.1",
+        "lit-html": "^1.0.0",
         "tslib": "^2.0.0"
     }
 }

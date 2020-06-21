@@ -144,6 +144,9 @@ $ node test/benchmark/cli -n 20
             '--measure=global',
             `--browser=${opts.browser}${opts.remote ? `@${opts.remote}` : ''}`,
             `--sample-size=${opts['sample-size']}`,
+            // `--package-version=next=@spectrum-web-components/${packageName}@0.7.1-alpha.6+07ae41d1`,
+            // `--package-version=current=@spectrum-web-components/${packageName}@file:${process.cwd()}/packages/${packageName}`,
+            '--force-clean-npm-install',
         ]);
 
         if (!statResults) {

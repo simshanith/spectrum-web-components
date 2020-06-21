@@ -1,6 +1,8 @@
 import { customElement, html, LitElement, property } from 'lit-element';
 import { TemplateResult, render } from 'lit-html';
 
+export { html };
+
 declare global {
     interface Window {
         tachometerResult: undefined | number;
