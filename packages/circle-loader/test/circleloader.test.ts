@@ -22,8 +22,8 @@ describe('Circle Loader', () => {
 
         await elementUpdated(el);
         expect(el).to.not.be.undefined;
-        expect(el).lightDom.to.equalSnapshot();
-        expect(el).shadowDom.to.equalSnapshot();
+        // expect(el).lightDom.to.equalSnapshot();
+        // expect(el).shadowDom.to.equalSnapshot();
 
         await expect(el).to.be.accessible();
     });
@@ -34,8 +34,8 @@ describe('Circle Loader', () => {
 
         await elementUpdated(el);
         expect(el).to.not.be.undefined;
-        expect(el).lightDom.to.equalSnapshot();
-        expect(el).shadowDom.to.equalSnapshot();
+        // expect(el).lightDom.to.equalSnapshot();
+        // expect(el).shadowDom.to.equalSnapshot();
 
         await expect(el).to.be.accessible();
     });

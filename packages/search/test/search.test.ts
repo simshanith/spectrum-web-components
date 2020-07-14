@@ -12,7 +12,7 @@ governing permissions and limitations under the License.
 import '../sp-search.js';
 import { Search } from '../';
 import { litFixture, html, elementUpdated, expect } from '@open-wc/testing';
-import { waitForPredicate } from '../../../test/testing-helpers';
+import { waitForPredicate } from '../../../test/testing-helpers.js';
 import '@spectrum-web-components/shared/src/focus-visible.js';
 import { spy } from 'sinon';
 
@@ -39,7 +39,7 @@ describe('Search', () => {
         await waitForPredicate(() => !!window.applyFocusVisiblePolyfill);
 
         expect(el.value).to.equal('Test');
-        expect(el).shadowDom.to.equalSnapshot();
+        // expect(el).shadowDom.to.equalSnapshot();
 
         const root = el.shadowRoot ? el.shadowRoot : el;
         const clearButton = root.querySelector('#button') as HTMLButtonElement;
@@ -49,7 +49,7 @@ describe('Search', () => {
 
         expect(el.value).to.equal('');
     });
-    it('can be cleared', async () => {
+    it('dispatches events when using the "clear" button', async () => {
         const inputSpy = spy();
         const changeSpy = spy();
         const handleInput = (event: Event): void => {
@@ -74,7 +74,7 @@ describe('Search', () => {
         await waitForPredicate(() => !!window.applyFocusVisiblePolyfill);
 
         expect(el.value).to.equal('Test');
-        expect(el).shadowDom.to.equalSnapshot();
+        // expect(el).shadowDom.to.equalSnapshot();
 
         const root = el.shadowRoot ? el.shadowRoot : el;
         const clearButton = root.querySelector('#button') as HTMLButtonElement;
