@@ -24,7 +24,28 @@
     class="track"
     id="track-left"
     role="presentation"
-    style="width: 50%"
+    style="clip-path: polygon(
+            0 0,
+            calc(
+            50% -
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 0,
+            calc(
+            50% -
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 100%,
+            0 100%
+        );"
   >
   </div>
   <div
@@ -51,7 +72,28 @@
     class="track"
     id="track-right"
     role="presentation"
-    style="width: 50%;left: calc(50% + var(--spectrum-slider-handle-width, var(--spectrum-global-dimension-size-200)) / 2)"
+    style="clip-path: polygon(
+            calc(
+            50% +
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 0,
+            100%  0,
+            100% 100%,
+            calc(
+            50% +
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 100%
+        );"
   >
   </div>
 </div>
@@ -128,7 +170,28 @@
     class="track"
     id="track-left"
     role="presentation"
-    style="width: 50%"
+    style="clip-path: polygon(
+            0 0,
+            calc(
+            50% -
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 0,
+            calc(
+            50% -
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 100%,
+            0 100%
+        );"
   >
   </div>
   <div class="ticks">
@@ -1162,7 +1225,28 @@
     class="track"
     id="track-right"
     role="presentation"
-    style="width: 50%;left: calc(50% + var(--spectrum-slider-handle-width, var(--spectrum-global-dimension-size-200)) / 2)"
+    style="clip-path: polygon(
+            calc(
+            50% +
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 0,
+            100%  0,
+            100% 100%,
+            calc(
+            50% +
+            var(
+                --spectrum-slider-handle-gap,
+                var(
+                    --spectrum-alias-border-size-thicker
+                )
+            )
+        ) 100%
+        );"
   >
   </div>
 </div>

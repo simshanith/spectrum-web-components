@@ -39,6 +39,33 @@ export const Default = (): TemplateResult => {
     `;
 };
 
+export const Gradient = (): TemplateResult => {
+    const trackColor = text(
+        'Track Color',
+        'linear-gradient(to right, red, green 100%)',
+        'Element'
+    );
+    const handleEvent = (event: Event): void => {
+        const target = event.target as Slider;
+        action(event.type)(target.value);
+    };
+    return html`
+        <div
+            style="width: 500px; margin: 12px 20px;--spectrum-slider-track-color:${trackColor};"
+        >
+            <sp-slider
+                label="Opacity"
+                max="100"
+                min="0"
+                value="50"
+                id="opacity-slider"
+                @input=${handleEvent}
+                @change=${handleEvent}
+            ></sp-slider>
+        </div>
+    `;
+};
+
 export const Disabled = (): TemplateResult => {
     const label = text('Label', 'Intensity');
     return html`
