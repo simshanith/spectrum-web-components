@@ -17,7 +17,7 @@ import {
     TemplateResult,
     query,
     PropertyValues,
-} from 'lit-element';
+} from '@spectrum-web-components/base';
 
 import spectrumSliderStyles from './spectrum-slider.css.js';
 import sliderStyles from './slider.css.js';

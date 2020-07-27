@@ -78,6 +78,7 @@ module.exports = {
                     selector: '.spectrum-Icon',
                 },
             ],
+            exclude: [/.spectrum-Tabs(?!-item)/],
         },
     ],
 };
